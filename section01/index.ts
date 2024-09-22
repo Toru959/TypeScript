@@ -57,3 +57,30 @@ anything.abc = 'abc';
 let banana = 'banana';
 banana = anything;
 
+// Union型 (複数の型)
+let unionType: string | number = 10;
+let unionTypes: (string | number)[] = [21, 'hello'];
+
+// Literal型 (特定の値を取り扱う) enumよりシンプル
+const apple: 'apple' = 'apple';
+const A: 'A' = 'A';
+
+let clothSize: 'small' | 'medium' | 'large' = 'large';
+const cloth: {
+    color: string,
+    size: 'small' | 'medium' | 'large'
+} = {
+    color: 'white',
+    size: 'medium'
+}
+
+// Typeエイリアス
+type ClothSize = 'small' | 'medium' | 'large';
+let clothSize2: ClothSize = 'large'
+const cloth2: {
+    color: string,
+    size: ClothSize
+} = {
+    color: 'black',
+    size: 'medium'
+}

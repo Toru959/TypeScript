@@ -57,3 +57,77 @@ anything.abc = 'abc';
 let banana = 'banana';
 banana = anything;
 
+// Union型 (複数の型)
+let unionType: string | number = 10;
+let unionTypes: (string | number)[] = [21, 'hello'];
+
+// Literal型 (特定の値を取り扱う) enumよりシンプル
+const apple: 'apple' = 'apple';
+const A: 'A' = 'A';
+
+let clothSize: 'small' | 'medium' | 'large' = 'large';
+const cloth: {
+    color: string,
+    size: 'small' | 'medium' | 'large'
+} = {
+    color: 'white',
+    size: 'medium'
+}
+
+// Typeエイリアス
+type ClothSize = 'small' | 'medium' | 'large';
+let clothSize2: ClothSize = 'large'
+const cloth2: {
+    color: string,
+    size: ClothSize
+} = {
+    color: 'black',
+    size: 'medium'
+}
+
+// 関数に型を付ける
+function add(num1: number, num2: number): number {
+    return num1 + num2
+}
+
+// 関数の戻り値にvoid型を使う方法
+function sayHello():void {
+    console.log('Hello');
+}
+
+console.log(sayHello());
+
+// undefined型とnull型
+let tmpUndefined: undefined = undefined;
+let tmpNull: null = null;
+
+// 関数型を使って、特定の関数のみを代入できる変数を作る
+const anotherAdd: (num1: number, num2: number) => number = add;
+const doubleNumber = (number: number):number => number * 2;
+
+// コールバック関数の型の書き方
+function doubleAndHandle(num: number, cb:(num: number) => number): void {
+    const doubleNum = cb(num * 2);
+    console.log(doubleNum);
+}
+
+doubleAndHandle(21, doubleNum => { return doubleNum });
+
+// unknown型
+let unknownInput: unknown;
+let anyInput: any;
+let text: string;
+unknownInput = 'hello';
+unknownInput = 21;
+unknownInput = true;
+text = anyInput;
+if (typeof unknownInput === 'string'){
+    text = unknownInput
+}
+
+// never型を使用して、起こり得ない値の型を使用する方法
+function error(message: string): never {
+    throw new Error(message);
+}
+
+console.log(error('This is an error'));

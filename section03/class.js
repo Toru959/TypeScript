@@ -1,8 +1,18 @@
-var Person = /** @class */ (function () {
-    function Person(initName) {
+"use strict";
+class Person {
+    name;
+    constructor(initName) {
         this.name = initName;
     }
-    return Person;
-}());
-var Username = new Person('Json');
-console.log(Username);
+    greeting() {
+        console.log(`Hello! My name is ${this.name}`);
+    }
+}
+const Username = new Person('Json');
+Username.greeting();
+// console.log(Username);
+const anotherUsername = {
+    name: 'anotherJson',
+    anotherGreeting: Username.greeting
+};
+anotherUsername.anotherGreeting();

@@ -1,22 +1,34 @@
 class Person {
 
     name: string;
+    private age: number
 
-    constructor(initName: string){
+    constructor(initName: string, initAge: number){
        this.name = initName; 
+       this.age = initAge;
     }
 
-    greeting(this: {name: string}){
+    incrementAge(){
+        this.age += 1;
+    }
+
+    greeting(this: {name: string, age: number}){
         console.log(`Hello! My name is ${this.name}`);
+        console.log(`I am ${this.age} years old`);
     }
 }
 
-const Username = new Person('Json');
-Username.greeting();
+
+const Json = new Person('Json', 21);
+
+Json.incrementAge();
+// 直接代入できてしまう
+// Json.age = 42;
+// Json.greeting();
 // console.log(Username);
 
-const anotherUsername = {
-    name: 'anotherJson',
-    anotherGreeting: Username.greeting
-}
-anotherUsername.anotherGreeting();
+// const anotherJson = {
+//     name: 'anotherJson',
+//     anotherGreeting: Json.greeting
+// }
+// anotherJson.anotherGreeting();

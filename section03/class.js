@@ -28,10 +28,14 @@ class Person {
     greeting() {
         console.log(`Hello! My name is ${this.name}`);
         console.log(`I am ${this.age} years old`);
+        this.explainJob();
     }
 }
 class Teacher extends Person {
     _subject;
+    explainJob() {
+        console.log(`I am a teacher and I teach ${this._subject}`);
+    }
     // getter 何かデータを取得したときに何かの関数を実行する
     get subject() {
         if (!this._subject) {
@@ -58,6 +62,7 @@ class Teacher extends Person {
 }
 const teacher = new Teacher('Eric', 43, 'Music');
 teacher.subject = 'Guitar';
+teacher.explainJob();
 // getterは関数だがプロパティのように扱える
 console.log(teacher.subject);
 console.log(Person.species);

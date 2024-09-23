@@ -1,4 +1,4 @@
-class Person {
+abstract class Person {
     static species = 'Homo sapiens';
     static isAdult(age: number){
         if(age > 17) return true;
@@ -26,10 +26,17 @@ class Person {
     greeting(this:Person){
         console.log(`Hello! My name is ${this.name}`);
         console.log(`I am ${this.age} years old`);
+        this.explainJob();
     }
+
+    abstract explainJob(): void;
+  
 }
 
 class Teacher extends Person {
+    explainJob(){
+        console.log(`I am a teacher and I teach ${this._subject}`);
+    }
     // getter 何かデータを取得したときに何かの関数を実行する
     get subject(){
         if (!this._subject){
@@ -59,6 +66,7 @@ class Teacher extends Person {
 
 const teacher = new Teacher('Eric', 43, 'Music');
 teacher.subject = 'Guitar';
+teacher.explainJob();
 // getterは関数だがプロパティのように扱える
 console.log(teacher.subject);
 

@@ -2,9 +2,9 @@
 class Person {
     name;
     age;
-    constructor(initName, initAge) {
-        this.name = initName;
-        this.age = initAge;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
     }
     incrementAge() {
         this.age += 1;
@@ -18,7 +18,7 @@ const Json = new Person('Json', 21);
 Json.incrementAge();
 // 直接代入できてしまう
 // Json.age = 42;
-// Json.greeting();
+Json.greeting();
 // console.log(Username);
 // const anotherJson = {
 //     name: 'anotherJson',

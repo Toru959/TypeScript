@@ -33,6 +33,7 @@ class Person {
 }
 class Teacher extends Person {
     _subject;
+    static instance;
     explainJob() {
         console.log(`I am a teacher and I teach ${this._subject}`);
     }
@@ -59,12 +60,22 @@ class Teacher extends Person {
         console.log(`I am ${this.age} years old`);
         console.log(`I teach ${this._subject}`);
     }
+    static getInstance() {
+        if (Teacher.instance) {
+            return Teacher.instance;
+        }
+        Teacher.instance = new Teacher('Eric', 43, 'Music');
+        return Teacher.instance;
+    }
 }
-const teacher = new Teacher('Eric', 43, 'Music');
-teacher.subject = 'Guitar';
-teacher.explainJob();
+const teacher = Teacher.getInstance();
+const teacher2 = Teacher.getInstance();
+console.log(teacher, teacher2);
+// const teacher = new Teacher('Eric', 43, 'Music');
+// teacher.subject = 'Guitar';
+// teacher.explainJob();
 // getterは関数だがプロパティのように扱える
-console.log(teacher.subject);
+// console.log(teacher.subject);
 console.log(Person.species);
 console.log(Person.isAdult(19));
 console.log(Teacher.species);

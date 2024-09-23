@@ -2,6 +2,12 @@
 class Person {
     name;
     age;
+    static species = 'Homo sapiens';
+    static isAdult(age) {
+        if (age > 17)
+            return true;
+        return false;
+    }
     id = 1;
     // privateはクラス内では読み書きできる。
     // readonlyはクラス内外でも読み取りだけ
@@ -16,6 +22,8 @@ class Person {
     incrementAge() {
         this.age += 1;
         // this.id = 2;
+        // Person.species;
+        // Person.isAdult(99);
     }
     greeting() {
         console.log(`Hello! My name is ${this.name}`);
@@ -23,16 +31,36 @@ class Person {
     }
 }
 class Teacher extends Person {
-    subject;
-    constructor(name, age, subject) {
+    _subject;
+    // getter 何かデータを取得したときに何かの関数を実行する
+    get subject() {
+        if (!this._subject) {
+            throw new Error('There is no subject.');
+        }
+        return this._subject;
+    }
+    // setter 何かの値を変更したいときに
+    set subject(value) {
+        if (!value) {
+            throw new Error('There is no value');
+        }
+        this._subject = value;
+    }
+    constructor(name, age, _subject) {
         super(name, age);
-        this.subject = subject;
+        this._subject = _subject;
     }
     greeting() {
         console.log(`Hello! My name is ${this.name}`);
         console.log(`I am ${this.age} years old`);
-        console.log(`I teach ${this.subject}`);
+        console.log(`I teach ${this._subject}`);
     }
 }
 const teacher = new Teacher('Eric', 43, 'Music');
-console.log(teacher.greeting());
+teacher.subject = 'Guitar';
+// getterは関数だがプロパティのように扱える
+console.log(teacher.subject);
+console.log(Person.species);
+console.log(Person.isAdult(19));
+console.log(Teacher.species);
+console.log(Teacher.isAdult(19));

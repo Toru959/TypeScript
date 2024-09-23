@@ -2,6 +2,12 @@
 class Person {
     name;
     age;
+    static species = 'Homo sapiens';
+    static isAdult(age) {
+        if (age > 17)
+            return true;
+        return false;
+    }
     id = 1;
     // privateはクラス内では読み書きできる。
     // readonlyはクラス内外でも読み取りだけ
@@ -16,6 +22,8 @@ class Person {
     incrementAge() {
         this.age += 1;
         // this.id = 2;
+        // Person.species;
+        // Person.isAdult(99);
     }
     greeting() {
         console.log(`Hello! My name is ${this.name}`);
@@ -52,3 +60,7 @@ const teacher = new Teacher('Eric', 43, 'Music');
 teacher.subject = 'Guitar';
 // getterは関数だがプロパティのように扱える
 console.log(teacher.subject);
+console.log(Person.species);
+console.log(Person.isAdult(19));
+console.log(Teacher.species);
+console.log(Teacher.isAdult(19));

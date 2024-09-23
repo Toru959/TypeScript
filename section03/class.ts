@@ -1,4 +1,9 @@
 class Person {
+    static species = 'Homo sapiens';
+    static isAdult(age: number){
+        if(age > 17) return true;
+        return false;
+    }
 
     readonly id: number = 1;
 
@@ -14,6 +19,8 @@ class Person {
     incrementAge(){
         this.age += 1;
         // this.id = 2;
+        // Person.species;
+        // Person.isAdult(99);
     }
 
     greeting(this:Person){
@@ -55,5 +62,10 @@ teacher.subject = 'Guitar';
 // getterは関数だがプロパティのように扱える
 console.log(teacher.subject);
 
+console.log(Person.species);
+console.log(Person.isAdult(19));
+
+console.log(Teacher.species);
+console.log(Teacher.isAdult(19));
 
 

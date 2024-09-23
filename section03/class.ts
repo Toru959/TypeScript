@@ -4,9 +4,9 @@ class Person {
 
     // privateはクラス内では読み書きできる。
     // readonlyはクラス内外でも読み取りだけ
-    constructor(public readonly name: string, private age: number){
-        this.name = "Tom"
-        this.age = 31;
+    constructor(public readonly name: string, protected age: number){
+        // this.name = "Tom"
+        // this.age = 31;
         this.id = 2;
         this.id = 3;
     }
@@ -22,24 +22,18 @@ class Person {
     }
 }
 
-let person2 = Person;
-const Json = new Person('Json', 21);
+class Teacher extends Person {
+    constructor(name: string, age: number, public subject: string){
+        super(name, age);
+    }
 
-let UserName = Json.name;
-console.log(UserName);
-//一回変数に入れれば書き換えできる
-UserName = 'Tom';
-console.log(UserName);
+    greeting(){
+        console.log(`Hello! My name is ${this.name}`);
+        console.log(`I am ${this.age} years old`);
+        console.log(`I teach ${this.subject}`);
+    }
+}
 
-Json.incrementAge();
-console.log(Json.id);
-// 直接代入できてしまう
-// Json.age = 42;
-Json.greeting();
-// console.log(Username);
+const teacher = new Teacher('Eric', 43, 'Music');
+console.log(teacher.greeting());
 
-// const anotherJson = {
-//     name: 'anotherJson',
-//     anotherGreeting: Json.greeting
-// }
-// anotherJson.anotherGreeting();

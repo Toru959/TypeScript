@@ -22,3 +22,5 @@ const temDeveloper = {
     }
 };
 const user = temDeveloper;
+let developer = new Developer('Mark', 23, 5);
+developer.name = 'Tom';

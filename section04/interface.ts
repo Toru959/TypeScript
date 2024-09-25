@@ -1,7 +1,7 @@
 //　オブジェクトのみのタイプエイリアス
 // 変数のようにオブジェクトをまとめることで、使い回す時に便利
 interface Human {
-   name: string,
+   readonly name: string,
    age: number,
    greeting(message: string): void,
 }
@@ -22,4 +22,7 @@ const temDeveloper = {
         console.log(message)
     }
 }
+
 const user: Human = temDeveloper;
+let developer = new Developer('Mark', 23, 5);
+developer.name = 'Tom';

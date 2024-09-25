@@ -1,9 +1,11 @@
-"use strict";
-const human = {
-    name: 'Jeff',
-    age: 34,
-    greeting(message) {
-        console.log(message);
+var Developer = /** @class */ (function () {
+    function Developer(name, age, experience) {
+        this.name = name;
+        this.age = age;
+        this.experience = experience;
     }
-};
-let developer;
+    Developer.prototype.greeting = function (message) {
+        console.log('Hello!');
+    };
+    return Developer;
+}());

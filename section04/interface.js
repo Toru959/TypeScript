@@ -1,4 +1,14 @@
 "use strict";
+// 通常の関数
+// type addFunc = (num1: number, num2: number) => number;
+// let addFunc: addFunc;
+// addFunc = (n1: number, n2: number) =>  {
+//     return n1 + n2;
+// }
+let addFunc;
+addFunc = (n1, n2) => {
+    return n1 + n2;
+};
 class Developer {
     name;
     age;

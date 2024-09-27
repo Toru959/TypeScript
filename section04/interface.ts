@@ -15,6 +15,11 @@ addFunc = (n1: number, n2: number) => {
 
 interface Nameable {
     name: string;
+    nickName?: string;
+}
+
+const nameable: Nameable = {
+    name: 'John'
 }
 
 //　オブジェクトのみのタイプエイリアス
@@ -28,7 +33,7 @@ interface Human extends Nameable {
 
 class Developer implements Human, Nameable {
     constructor(public name: string, public age: number, public experience: number){}  
-    greeting(message: string) {
+    greeting(message: string = 'hello') {
         console.log(message);
     }  
 }

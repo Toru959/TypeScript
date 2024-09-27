@@ -54,3 +54,8 @@ havePet(new Dog());
 const input = document.getElementById('input');
 // const input = document.getElementById('input') as HTMLInputElement;
 input.value = 'initial input value';
+const designer = {
+    name: 'John',
+    role: 'web',
+    age: '24'
+};

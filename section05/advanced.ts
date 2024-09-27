@@ -98,3 +98,14 @@ const input = <HTMLInputElement>document.getElementById('input');
 // const input = document.getElementById('input') as HTMLInputElement;
 input.value = 'initial input value';
 
+interface Designer {
+    name: string;
+    age: string; 
+    [index: string]: string; // 全てstringの型になる
+}
+const designer: Designer = {
+    name: 'John',
+    role: 'web',
+    age: '24'
+}
+

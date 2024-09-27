@@ -4,14 +4,13 @@ const John = {
     role: 'front-end',
     follower: 200
 };
-// 型を絞り込む方法　タイプガード
-//typeof
 function toUpperCase(x) {
     if (typeof x === 'string') {
         return x.toUpperCase();
     }
-    return '';
+    return x;
 }
+const upperHello = toUpperCase('hello');
 function describeProfile(nomadWorker) {
     console.log(nomadWorker.name);
     if ('role' in nomadWorker) {

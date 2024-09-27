@@ -38,13 +38,17 @@ type Mix = NumberBoolean & StringNumber;
 
 // 型を絞り込む方法　タイプガード
 //typeof
+function toUpperCase(x: string): string; // 関数オーバーロード
+function toUpperCase(x: number): number;
 function toUpperCase(x: string | number){
     if (typeof x === 'string'){
         return x.toUpperCase();
     } 
 
-    return '';
+    return x;
 }
+
+const upperHello = toUpperCase('hello');
 
 // in演算子
 type NomadWorker = Engineer | Blogger;

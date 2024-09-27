@@ -22,11 +22,13 @@ function describeProfile(nomadWorker) {
     }
 }
 class Dog {
+    kind = 'dog'; //  tag
     speak() {
         console.log('bow-bow');
     }
 }
 class Bird {
+    kind = 'bird'; // tag
     speak() {
         console.log('tweet-tweet');
     }
@@ -36,6 +38,12 @@ class Bird {
 }
 function havePet(pet) {
     pet.speak();
+    switch (pet.kind) {
+        case 'bird':
+            pet.fly();
+        case 'dog':
+            pet.speak();
+    }
     if (pet instanceof Bird) {
         pet.fly();
     }

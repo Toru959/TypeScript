@@ -59,12 +59,14 @@ function describeProfile(nomadWorker: NomadWorker){
 }
 
 class Dog {
+    kind: 'dog' = 'dog'; //  tag
     speak(){
         console.log('bow-bow');
     }
 }
 
 class Bird {
+    kind: 'bird' = 'bird'; // tag
     speak(){
         console.log('tweet-tweet');
     }
@@ -76,7 +78,13 @@ class Bird {
 // instanceof
 type Pet = Dog | Bird;
 function havePet(pet: Pet){
-    pet.speak();
+    pet.speak(); 
+    switch (pet.kind){
+        case 'bird':
+            pet.fly();
+        case 'dog':
+            pet.speak();
+    }
     if (pet instanceof Bird){
         pet.fly();
     }

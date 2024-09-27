@@ -9,6 +9,9 @@ let addFunc;
 addFunc = (n1, n2) => {
     return n1 + n2;
 };
+const nameable = {
+    name: 'John'
+};
 class Developer {
     name;
     age;
@@ -18,7 +21,7 @@ class Developer {
         this.age = age;
         this.experience = experience;
     }
-    greeting(message) {
+    greeting(message = 'hello') {
         console.log(message);
     }
 }

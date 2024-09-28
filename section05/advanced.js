@@ -58,3 +58,8 @@ const designer = {
     role: 'web',
     age: '24'
 };
+const downloadedData = {
+    id: 1
+};
+// downloadedData.userがundefinedかnullだったらundefinedを返す
+console.log(downloadedData.user?.name?.first);

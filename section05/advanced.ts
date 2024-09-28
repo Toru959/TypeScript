@@ -130,4 +130,38 @@ console.log(downloadedData.user?.name?.first);
 // downloadedData.userがundefinedかnullだったらno-userを代入する
 const userData = downloadedData.user ?? 'no-user';
 
-type id = DownloadedData["id" | "user"]
+type id = DownloadedData["id" | "user"];
+type StringArray = string[];
+type ArrayValue = StringArray[number];
+type TupleType = [string, number, boolean];
+type TupleValue = TupleType[number]
+
+let target: string = 'hello';
+let source: 'hello' = 'hello';
+target = source;
+
+enum Color {
+    RED,
+    BLUE
+}
+let target2 = Color.RED;
+let source2 = 0;
+target2 = source2;
+
+let target3 = function(a: string){ } 
+let source3 = function(a: string){ }
+target3 = source3; // target3の型だけど実際に実行される関数はsource3
+
+class AdvancedPerson {
+    name: string = 'Peter'
+}
+class AdvancedCar {
+    name: string = 'Prius'
+    age: number = 4
+
+}
+
+let target4 = new AdvancedPerson();
+let source4 = new AdvancedCar();
+target4 = source4;
+

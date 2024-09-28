@@ -63,3 +63,5 @@ const downloadedData = {
 };
 // downloadedData.userがundefinedかnullだったらundefinedを返す
 console.log(downloadedData.user?.name?.first);
+// downloadedData.userがundefinedかnullだったらno-userを代入する
+const userData = downloadedData.user ?? 'no-user';

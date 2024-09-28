@@ -65,3 +65,27 @@ const downloadedData = {
 console.log(downloadedData.user?.name?.first);
 // downloadedData.userがundefinedかnullだったらno-userを代入する
 const userData = downloadedData.user ?? 'no-user';
+let target = 'hello';
+let source = 'hello';
+target = source;
+var Color;
+(function (Color) {
+    Color[Color["RED"] = 0] = "RED";
+    Color[Color["BLUE"] = 1] = "BLUE";
+})(Color || (Color = {}));
+let target2 = Color.RED;
+let source2 = 0;
+target2 = source2;
+let target3 = function (a) { };
+let source3 = function (a) { };
+target3 = source3; // target3の型だけど実際に実行される関数はsource3
+class AdvancedPerson {
+    name = 'Peter';
+}
+class AdvancedCar {
+    name = 'Prius';
+    age = 4;
+}
+let target4 = new AdvancedPerson();
+let source4 = new AdvancedCar();
+target4 = source4;

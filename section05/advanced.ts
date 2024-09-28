@@ -113,3 +113,21 @@ const designer: Designer = {
     age: '24'
 }
 
+interface DownloadedData {
+    id: number,
+    user?: {
+        name?: {
+            first: string;
+            last: string;
+        }
+    } 
+}
+const downloadedData: DownloadedData = {
+    id: 1
+}
+// downloadedData.userがundefinedかnullだったらundefinedを返す
+console.log(downloadedData.user?.name?.first);
+// downloadedData.userがundefinedかnullだったらno-userを代入する
+const userData = downloadedData.user ?? 'no-user';
+
+type id = DownloadedData["id" | "user"]

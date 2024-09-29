@@ -165,3 +165,15 @@ let target4 = new AdvancedPerson();
 let source4 = new AdvancedCar();
 target4 = source4;
 
+interface FuncA {
+    (a: number, b: string): number;
+    (a: string, b: number): number;
+}
+
+interface FuncB {
+    (a: string): number;
+}
+let intersectionFunc: FuncA & FuncB;
+intersectionFunc = function(a: number | string, B?: number | string){
+    return 0;
+}

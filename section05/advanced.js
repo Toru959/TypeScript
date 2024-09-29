@@ -89,3 +89,7 @@ class AdvancedCar {
 let target4 = new AdvancedPerson();
 let source4 = new AdvancedCar();
 target4 = source4;
+let intersectionFunc;
+intersectionFunc = function (a, B) {
+    return 0;
+};

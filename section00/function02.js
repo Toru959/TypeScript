@@ -32,3 +32,9 @@ function main() {
 main();
 // ローカルスコープで宣言された関数にはアクセスできない
 // hello();
+'関数はオブジェクト';
+'JavaScriptの関数はオブジェクトです。したがって、関数にプロパティを持たせることができます。';
+// function hello(){
+//     return "Hello World";
+// }
+// hello.prop = 123 ;

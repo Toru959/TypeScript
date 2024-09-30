@@ -49,3 +49,38 @@ main();
 //     return "Hello World";
 // }
 // hello.prop = 123 ;
+
+'関数の引数'
+'JavaScriptの関数では、関数が期待する引数の個数と、関数を呼び出した際に渡した数が一致していなくても、関数が呼び出せます。'
+'つまり、JavaScriptは引数のチェックを行わないということです。'
+// function increment10(num){
+//     return num + 1;
+// }
+// increment10(1, 2)
+
+'逆にJavaScriptでは、引数が少ない場合であっても関数が実行されます。その際、渡されなかった引数の値はundefinedになる。'
+// function foo(a, b){
+//     console.log(b);
+// }
+// foo(1); // 引数が足りない
+
+'基本的に引数が多く渡される分には、関数の実行が問題になることはない。余分な引数は無視して仕舞えばいいからです。'
+'TypeScriptでは関数の引数の数が一致していないとコンパイルエラーになります。'
+
+
+'引数の型'
+'JavaScriptは、引数の型についてもチェックしない。関数の実行自体は行われ、nullに存在しないlengthプロパティへの参照を試みる段階でエラーが出る。'
+// function len(str){
+//     return str.length;
+// }
+// console.log(len(null));
+
+'引数の型を厳密にする場合、チェック処理を書く必要があります。'
+// function len(str){
+//     if (typeof str !== "string"){
+//         throw new Error("strは文字列型にしてください");
+//     }
+//     return str.length;
+// }
+// len("a"); // OK
+// len(1); // エラー

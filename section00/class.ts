@@ -75,3 +75,20 @@
 // }
 // const alice = new Person("Alice");
 
+'method'
+'JavaScriptのクラスにメソッドを実装するには、メソッド構文を用います'
+// class Greeter {
+//     greet(name){
+//         return `Hello, ${name}!`;
+//     }
+// }
+
+'メソッドの型注釈'
+'TypeScriptでは、メソッドの引数と戻り値に型注釈できます。'
+class Greeter {
+    greet(name: string): string{
+        return `Hello, ${name}!`;
+    }
+}
+
+'メソッドの型注釈は関数宣言構文の型注射と同じです。引数や戻り値の型注釈を省略することもできます。'

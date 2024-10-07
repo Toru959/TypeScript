@@ -39,3 +39,27 @@ abstract class AbstraactClass {}
 class ConcreteClass extends AbstraactClass{}
 const obj = new ConcreteClass();
 console.log(obj instanceof AbstraactClass); // true
+
+'公称型クラス'
+'TypeScriptでは、クラスに1つでも非パブリックなプロパティがあると、そのクラスだけ構造的部分型ではなく公称型(nominal typing)になります。'
+'例えば、UserIdクラスとGroupIdクラスで同名になってしまっているidプロパティをプライベートにするだけで、相互の代入が不可能になります。'
+class UserId {
+    private readonly id: string;
+
+    constructor(id: string){
+        this.id = id;
+    }
+}
+
+class GroupoId {
+    private readonly id: string;
+
+    constructor(id: string){
+        this.id = id;
+    }
+}
+
+// const userId: UserId = new GroupoId("...");
+
+'この方法はフィールドに限らず、プライベートメソッドやprotectedプロパティでも同じ効果があります。'
+

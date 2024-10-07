@@ -12,8 +12,8 @@ class constructorInAccessModifier {
 }
 
 class constructorOutAccessModifier {
-    public arg1: number;
     protected arg2: number;
+    public arg1: number;
     private arg3: number;
     constructor(arg0: number, arg1: number, arg2: number, arg3: number){
         this.arg1 = arg1;
@@ -51,3 +51,16 @@ class Octopus2 {
         // this.name = newName;  // Error
     }
 }
+
+
+'クラスはオブジェクト'
+'JavaScriptのクラスの特徴は、クラスもオブジェクトの一種というところです。JavaScriptのオブジェクトはプロパティの集合体です。クラスもオブジェクトなのでプロパティの集合体としての性質を持ちます。したがって、定義したクラスはプロパティを追加したり、変更したりできます。'
+// const myObject = {};
+// myObject.key = "value"; // プロパティを追加
+
+// class MyClass {};
+// MyClass.key = "value"; // プロパティを追加
+
+'一方、TypeScriptでは型安全のためにこうした動的な拡張ができないようになっています。'
+// class MyClass {}
+// MyClass.key = "value";

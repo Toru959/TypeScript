@@ -67,7 +67,7 @@ op2.sum(5).subtract(3).multiply(6).divide(3); // 4
 
 'op.sum(), op.subtrawect(), op.multiply(), op.divide()の戻り値の型をOperatort2に変更しました。'
 'これによりメソッドチェーンが可能になりました。'
-'ここで、このクラスOperator2を拡張してル以上の計算を追加したいとします。すると新しいクラスNewOperatorは次のようになる。'
+'ここで、このクラスOperator2を拡張して累乗の計算を追加したいとします。すると新しいクラスNewOperatorは次のようになる。'
 class NewOperator extends Operator2 {
     public constructor(value: number){
         super(value);
@@ -79,4 +79,9 @@ class NewOperator extends Operator2 {
     }
 }
 
+'ですが、このクラスでは次の演算ができない'
+const op3: NewOperator = new NewOperator(2);
+// op3.power(3).multiply(2).power(3);
 
+'これはop.multiply()の戻り値がOperator2だからです。Operatorにはpower()というメソッドがないためこのような問題が発生します。'
+'このような時、戻り値にthisを設定することができます。上記のクラスの戻り値のOperator2, NewOperatorを全てthisに置き換えると問題が解消されます。'

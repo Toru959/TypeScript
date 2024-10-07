@@ -64,3 +64,36 @@ class Octopus2 {
 '一方、TypeScriptでは型安全のためにこうした動的な拡張ができないようになっています。'
 // class MyClass {}
 // MyClass.key = "value";
+
+
+'静的フィールド (static field)'
+'JavaやPHPには静的フィールド(static field)という概念があります。通常のフィールドはインスタンスのプロパティですが、静的フィールドはクラスのプロパティです。JavaやPHPではstaticキーワードで静的フィールドを宣言できます。'
+
+'AJavaScriptにはJavaのような静的フィールドの機能がありません。代わりに、クラスのプロパティに後から値を代入することで似たようなことができます。'
+// class SomeClass {}
+// SomeClass.field = 123;
+// console.log(SomeClass.field); // 123
+
+'TypeScriptでは、Java風の静的フィールドの書き方ができるようになっています。TypeScriptで静的フィールドを宣言するにはstaticキーワードを用います。'
+class SomeClass {
+    static field: number = 123;
+}
+console.log(SomeClass.field); // 123
+
+'静的フィールドの型推論'
+'TypeScriptの静的フィールドは初期値がセットされている場合、その初期値からフィールドの型が型推論されます。そのため、フィールドの型注釈が省略できます。'
+class SomeClass2 {
+    static field = 123;
+}
+
+'静的フィールドとアクセス修飾子'
+'TypeScriptの静的フィールドはアクセス修飾子を組み合わせられます。'
+class SomeClass3 {
+    private static field: number;
+}
+
+'読み取り専用の静的フィールド'
+'TypeScriptの静的フィールドはreadonly修飾子をつけると読み取り専用になります。'
+class SomeClass4 {
+    static readonly field: number;
+}

@@ -54,7 +54,9 @@ class Octopus2 {
 
 
 'クラスはオブジェクト'
-'JavaScriptのクラスの特徴は、クラスもオブジェクトの一種というところです。JavaScriptのオブジェクトはプロパティの集合体です。クラスもオブジェクトなのでプロパティの集合体としての性質を持ちます。したがって、定義したクラスはプロパティを追加したり、変更したりできます。'
+'JavaScriptのクラスの特徴は、クラスもオブジェクトの一種というところです。'
+'JavaScriptのオブジェクトはプロパティの集合体です。クラスもオブジェクトなのでプロパティの集合体としての性質を持ちます。'
+'したがって、定義したクラスはプロパティを追加したり、変更したりできます。'
 // const myObject = {};
 // myObject.key = "value"; // プロパティを追加
 
@@ -75,7 +77,8 @@ class Octopus2 {
 // console.log(SomeClass.field); // 123
 
 'TypeScriptでは、Java風の静的フィールドの書き方ができるようになっています。TypeScriptで静的フィールドを宣言するにはstaticキーワードを用います。'
-class SomeClass {
+class
+ SomeClass {
     static field: number = 123;
 }
 console.log(SomeClass.field); // 123
@@ -97,3 +100,31 @@ class SomeClass3 {
 class SomeClass4 {
     static readonly field: number;
 }
+
+'静的メソッド(static method)'
+'JavaやPHPには静的メソッドという概念があります。Rubyではクラスメソッドに相当します。通常のメソッドはインスタンスに属しますが、静的メソッドはクラスに属す'
+'JavaScriptにはJavaのような静的メソッドの機能がありません。代わりに、くらすのプロパティに後から関数を代入することで、似たようなことができます。'
+// class SomeClass5 {}
+// SomeClass5.doSomething = function(){
+//     // ...
+// };
+// SomeClass5.doSomething();
+
+'TypeScriptでは、java風の静的メソッドの書き方ができるようになっています。'
+class SomeClass6 {
+    static doSomething(){
+        // ...
+    }
+}
+
+SomeClass6.doSomething();
+
+'静的メソッドとアクセス修飾子'
+'TypeScriptの静的メソッドはアクセス修飾子を組み合わせられます。'
+class SomeClass7 {
+    private static doSomething(){
+        // ...
+    }
+}
+
+

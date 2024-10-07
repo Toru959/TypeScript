@@ -25,3 +25,29 @@ class constructorOutAccessModifier {
 }
 
 'TypeScriptで記述する際は、各アクセス修飾子のスコープ機能が有効になるため、インスタンスからのアクセスが可能なプロパティはpublic宣言されたものだけ'
+
+
+'クラスのreadonly修飾子'
+'TypeScriptではフィールドにreadonly修飾子をつけると、そのフィールドを読み取り専用にできる。'
+'読み取り専用フィールドは、コンストラクタかフィールド初期化子でのみ値を代入できます。'
+class Octopus {
+    readonly name: string;
+    readonly legs = 8; // フィールド初期化子での代入はOK
+
+    constructor(){
+        this.name = "たこちゃん"; // コンストラクタ―での代入はOK
+    }
+}
+
+'読み取り専用フィールドは、再代入しようとするとコンパイルエラーになる'
+const octopus = new Octopus();
+// octopus.legs = 16; // Error
+
+'メソッド内の処理であっても、読み取り専用フィールドへの再帰代入は許されない'
+class Octopus2 {
+    readonly name = "たこちゃん";
+
+    setName(newName: string){
+        // this.name = newName;  // Error
+    }
+}

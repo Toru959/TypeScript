@@ -22,16 +22,16 @@ const say2 = (str: string = "Hello") => {};
 
 '残余引数/可変長引数'
 '通常の関数は引数の数が決まっています。JavaScriptでは引数の数に決まりがない関数もつくれます。'
-function func(...params: (number | string)[]): void {
-    console.log(params);
-}
-func(1, 2, 3);
+// function func(...params: (number | string)[]): void {
+//     console.log(params);
+// }
+// func(1, 2, 3);
 
 '普通の引数と残余引数を持つ関数も作れる'
-function func2(param1: number, ...params: (number | string)[]){
-    console.log(param1, params);
-}
-func(1, 2, 3);
+// function func2(param1: number, ...params: (number | string)[]){
+//     console.log(param1, params);
+// }
+// func(1, 2, 3);
 
 
 '残余引数の型注釈'

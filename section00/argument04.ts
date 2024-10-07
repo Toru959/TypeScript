@@ -32,15 +32,15 @@
 
 'Options Objectパターンの型注釈'
 'TypeScriptでOptions Objectパターンを使うときは、引数の型注釈が必要になります。型注釈はオブジェクトの型を書きます。'
-function func({ x, y, z}: {x: number; y: number; z: number}){}
+// function func({ x, y, z}: {x: number; y: number; z: number}){}
 
-'オブジェクトの型の記述が長すぎる場合には、TypeScriptの型エイリアスを用いて、引数の型を分けて書くと可視性が高まります。'
-type Options = {
-    x: number;
-    y: number;
-    z: number;
-}
-function func({x, y, z}: Options){}
+// 'オブジェクトの型の記述が長すぎる場合には、TypeScriptの型エイリアスを用いて、引数の型を分けて書くと可視性が高まります。'
+// type Options = {
+//     x: number;
+//     y: number;
+//     z: number;
+// }
+// function func({x, y, z}: Options){}
 
 
 'Options Objectパターンの利点'

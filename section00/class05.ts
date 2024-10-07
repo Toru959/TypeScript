@@ -63,3 +63,35 @@ class GroupoId {
 
 'この方法はフィールドに限らず、プライベートメソッドやprotectedプロパティでも同じ効果があります。'
 
+'抽象クラス(abstract class)'
+'JavaやPHPなどの言語では、abstract修飾子を使って抽象クラスを定義できます。抽象クラスは、直接インスタンスを作れないクラスのことです。'
+'JavaScriptには抽象クラスを定義する構文はありません。TypeScriptにはabstract修飾子があり抽象クラスを表現できます。'
+abstract class Food {
+    constructor(protected name: string, protected calorie: number){}
+    showDebug(){
+        console.log(`name = ${this.name}`);
+        console.log(`calorie = ${this.calorie}kcal`);
+    }
+    abstract keepRefrigerated(): Boolean;
+}
+//  class Meat extends Food{};
+'Foodクラスを抽象クラスに変更し、“要冷蔵”メソッドkeepRefrigerated()を抽象メソッドとして追加するとMeetクラスでエラーがでる。'
+'これはMeetクラスにkeepRefrigeratedメソッドが実装されていないから'
+
+'keepRefrigerated()メソッドを実装するとエラーがなくなる'
+class Meat extends Food{
+    keepRefrigerated(): Boolean {
+        return true;
+    }
+}
+
+
+'JavaScriptへのコンパイルしたときに起こること'
+'TypeScriptの抽象クラスは、JavaScriptにコンパイルしたとき、消されることなく残ります。何も中身がない抽象クラスを定義してコンパイルしてみるとどうなるか'
+abstract class AbstractClass {}
+
+'TypeScript->JavaScript'
+// class AbstraactClass {}
+
+'このように、抽象クラスはabstract修飾子が外され、ただのクラスとしてコンパイルされます。'
+'抽象メソッドは、コンパイル時に消されます。中身は残る'

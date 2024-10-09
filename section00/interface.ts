@@ -30,3 +30,43 @@ interface SomeInterface {
 //   name: "太郎",
 //   age: 12,
 // };
+
+
+'インターフェースを実装する'
+'TypeScriptでは、クラスがインターフェースを実装できます。実装するにはinplementsキーワードを用います。'
+// interface Human {
+//   think(): void;
+// }
+
+// class Developer implements Human {
+//   think(): void {
+//     console.log("どういう実装にしようかなー");
+//   }
+// }
+
+'インターフェースを複数してすることもできます。そのときは、でインターフェースを区切り列挙します。'
+// interface Human {
+//   think(): void;
+// }
+
+// interface Programmer {
+//   writeCode(): void;
+// }
+
+// class TypeScriptProgrammer implements Human, Programmer{
+//   think(): void{
+//     console.log("どういうコードにしようかな");
+//   }
+//   writeCode(): void{
+//     console.log("カタカタ");
+//   }
+// }
+
+'インターフェースで定義されたフィールドをクラスで実装するには、クラス側にはフィールドを定義します。'
+// interface Human {
+//   name: string;
+// }
+
+// class Developer implements Human {
+//   name: string = "Bob";
+// }

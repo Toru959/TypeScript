@@ -39,6 +39,7 @@ interface SomeInterface {
 // }
 
 // class Developer implements Human {
+
 //   think(): void {
 //     console.log("どういう実装にしようかなー");
 //   }
@@ -76,4 +77,53 @@ interface SomeInterface {
 // 'TypeScriptのインターフェースでは、フィールドにreadonly修飾子をつけることで読み取り専用のフィールドが定義できます。'
 // interface SomeInterface {
 //   readonly field: number;
+// }
+
+'interfaceの継承'
+'TypeScriptでは、extendsキーワードを利用して定義済みのインターフェースを継承して、あらたにインターじぇーすを定義することができます。'
+'インターフェースを継承した場合は、継承元のプロパティの型情報はすべて引き継が出ます。'
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+
+// interface Student extends Person {
+//   grade: number;
+// }
+
+// interface Teacher extends Person {
+//   students: Student[];
+// }
+
+// const studentA: Student = {
+//   name: "Tom",
+//   age: 10,
+//   grade: 3
+// };
+
+// const teacher: Teacher = {
+//   name: "John",
+//   age: 32,
+//   students: [studentA],
+// };
+
+'プロパティを部分型に宣言しなおす'
+'ある型からその型のリテラル型にすることも、ユニオン型から部分的に選択することもTypeScriptではそれぞれサブタイプにしていることと同じ意味があります。'
+'もちろん他のオブジェクト指向の言語と同じようにサブクラスにすることもできる'
+'リテラル型に変更する'
+// interface WebPage {
+//   path: string;
+// }
+
+// interface IndexPage extends WebPage {
+//   path: "/";
+// }
+
+// 'ユニオン型から選ぶ'
+// interface Person {
+//   age: number | undefined;
+// }
+
+// interface Student extends Person {
+//   age: number;
 // }

@@ -70,3 +70,10 @@ interface SomeInterface {
 // class Developer implements Human {
 //   name: string = "Bob";
 // }
+
+
+'interfaceのreadonly修飾子'
+// 'TypeScriptのインターフェースでは、フィールドにreadonly修飾子をつけることで読み取り専用のフィールドが定義できます。'
+// interface SomeInterface {
+//   readonly field: number;
+// }

@@ -88,3 +88,110 @@ interface Student {
 // console.log(obj instanceof AbstractClass);
 
 
+'interfaceとtypeの違い'
+'型エイリアスを利用することで、インターフェースと同様の定義が行なえます。'
+// interface Animal {
+//   name: string;
+//   bark(): string;
+// }
+// type Animal = {
+//   name: string;
+//   bark(): string;
+// };
+
+'継承'
+'インターフェースは、インターフェースや型エイリアスを継承できます。'
+// interface Animal {
+//   name: string;
+// }
+// type Creature = {
+//   dna: string;
+// };
+// interface Dog extends Animal, Creature {
+//   dogType: string;
+// }
+
+'一方、型エイリアスは継承は行えません。代わりに交差型(&)を使用することで、継承と似たことを実現できます。'
+// type Animal = {
+//   name: string;
+// };
+// type Creature = {
+//   dna: string;
+// };
+// type Dog = Animal &
+//   Creature & {
+//     dogType: string;
+// };
+
+'プロパティのオーバーライド'
+'インターフェースで継承の際にプロパティをオーバーライドすると、継承元のプロパティの型が上書きされます。'
+// OK
+// interface Animal {
+//   name: any;
+//   price: {
+//     yen: number;
+//   };
+//   legCount: number;
+// }
+
+// interface Dog extends Animal {
+//   name: string;
+//   price: {
+//     yen: number;
+//     dollar: number;
+//   };
+// }
+
+// // 最終的なDogの定義
+// interface Dog {
+//   name: string;
+//   price: {
+//     yen: number;
+//     dollar: number;
+//   };
+//   legCount: number;
+// }
+
+'ただし、オーバーライドするためには元の型に代入できるものでなければなりません。次の例はnumber型であるフィールドをstring型でオーバーライドしようとしている例です。'
+// interface A {
+//   numberField: number;
+//   price: {
+//     yen: number;
+//     dollar: number;
+//   };
+// }
+
+// interface B extends A {
+//   numberField: string;
+//   price: {
+//     yen: number;
+//     euro: number;
+//   };
+// }
+
+'一方、型エイリアスの場合は上書きにはならず、フィールドの型の交差型が計算されます。また、交差型で矛盾があって計算できない場合もコンパイルエラーにはなりません。'
+// type Animal = {
+//   name: number;
+//   price: {
+//     yen: number;
+//     dollar: number;
+//   };
+// };
+
+// type Dog = Animal & {
+//   name: string;
+//   price: {
+//     yen: number;
+//     euro: number;
+//   };
+// };
+
+// // 最終的なDogの定義
+// type Dog = {
+//   name: never; // 交差型を作れない場合はコンパイルエラーではなくnever型になる
+//   price: {
+//     yen: number;
+//     dollar: number;
+//     euro: number;
+//   };
+// };

@@ -49,3 +49,31 @@ const element5 = (
 );
 'こうすると、正しく[This is a pen.]としてレンダリングされます。'
 
+'属性'
+'JSX属性の名前は、JavaScriptの命名規則に従いcamelCaseで記述することが推奨されています。この命名規則は、HTML内のアトリビュートとは異なる点に注意です。'
+
+'標準HTML属性'
+'JSXでは、HTML属性と同じように要素に属性を与えることができます。'
+const element6 = <img src="image.jpg" alt="A beautiful scene" />
+const element7 = <a href="http://example.com">Visit our website</a>
+
+'ただし、class属性はJavaScriptの予約語であるために、かわりにclassNameを使用します。'
+const element8 = <h1 className="greeting">Hello, World!</h1>;
+
+'スタイル属性'
+'HTMLでは、スタイル属性は一般的に文字列です。'
+{/* <div style="background-color: yellow: color: blue;">Hello!</div> */}
+
+'一方、JSXではスタイル属性はオブジェクトでなくてはならない'
+{/* <div style={{ backgroundColor: "yellow", color: "blue" }}>hello!</div>; */}
+
+'真偽属性'
+'真偽属性は、要素に特定の特性を指定します。例えば、input要素には"disabled"というboolean型の属性があり、その値に真をしていするとinput要素は無効になります。'
+const element9 = <input disabled />;
+
+'属性の値として{true}をつけて明示的に指定することもできる。'
+const element10 = <input disabled={true} />;
+
+'しかし、一般的には属性値がtrueの場合、値の部分を省略することが推奨されます。このように記述すると、コードが短くシンプルになるためです。'
+'したがって、上記の例のように属性名のみを指定することで、その属性を有効にすることができます。'
+

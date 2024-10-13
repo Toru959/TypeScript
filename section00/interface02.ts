@@ -195,3 +195,49 @@ interface Student {
 //     euro: number;
 //   };
 // };
+
+'同名のものを宣言'
+'型エイリアスは同名のものを複数定義できず、コンパイルエラーになります。'
+// type SameNameTypeWillError = {
+//     message: string;
+// };
+
+// type SameNameTypeWillError = {
+//     detail: string;
+// }
+
+'一方、インターフェースの場合は、同名のインターフェースを定義でき、同名の定義をすべて合成したインターフェースになります。'
+'ただし、同名のフィールドだが、型の定義が違っている場合はコンパイルエラーになります。'
+// interface SameNameInterfaceIsAllowed {
+//     myField: string;
+//     sameNameSameTypeIsAllowed: number;
+//     sameNameDifferentTypeIsNotAllowed: string;
+// }
+
+// interface SameNameInterfaceIsAllowed {
+//     newField: string;
+//     sameNameSameTypeIsAllowed: number;
+// }
+
+// interface SameNameInterfaceIsAllowed {
+//     sameNameDifferentTypeIsNotAllowed: number;
+// }
+
+'Mapped Types'
+'Mapped Typesについては別のページで詳しく説明しますので、ここでは型エイリアスとインターフェースのどちらで使えるかだけを説明します。'
+'Mapped Typesは型のキーを動的に指定することができる仕組みであり、型エイリアスでのみ利用することができます。'
+'次の例ではユニオン型の一覧をキーとした新しい型を生成しています'
+// type SystemSupportLanguage = "en" | "fr" | "it" | "es";
+// type Butterfly = {
+//     [key in SystemSupportLanguage]: string;
+// }
+
+'インターフェースでMapped Typesを使うとエラーになります。'
+// type SystemSupportLanguage = "en" | "fr" | "it" | "es";
+// interface BUtterfly {
+//     [key in FileSystemLanguage]: string;
+// }
+
+'インターフェースと型エイリアスの使い分け'
+'実際に型を定義する時にインターフェースと型エイリアスのどちらを使うのがよいのでしょうか？残念ながら、これに関しては明確な正解はありません。'
+'インターフェースと型エイリアスのどちらでも型を定義することができますが、拡張性やMapped Typesの利用可否といった点で異なる部分が存在するので、これらのメリット・デメリットを考慮してプロジェクト内でルールを決めてそれに遵守するようにしましょう。'

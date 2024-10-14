@@ -93,5 +93,29 @@ const sum = <h1>{a + b}</h1>;
 const name2 = "Josh Perez";
 const greeting2 = <h1>Hello, {name.toUpperCase()}</h1>;
 
+'条件式'
+'JavaScriptのif文は式ではなく文であるため、JSXの式の中に直接書くことはできません。条件式が必要な場合には三項演算子を用います。'
+const isUser = true;
+const greeting3 = isUser ? <h1>Welcome back!</h1> : <h1>Please sign up.</h1>;
+
+'このように、三項演算子を使うことでJSX内で条件によって表示を切り替えることがかのう。'
+
+'短絡評価'
+'JavaScriptの論理演算子を使用して、短絡評価を追い込名うことも可能です。特定の条件でのみ要素を表示した入り、デフォルトの値を提供する。'
+
+'論理AND演算子(&&)による短絡評価'
+'論理AND演算子&&は、最初の要素がfalseまたはfaalsyな値の場合そのままの値をそのまま返し、それ以外の場合には2番目の値を返します。'
+const message = isLoggedIn && <h1>Welcome back!</h1>;
+
+'論理OR演算子(||)による短絡評価'
+'論理OR演算子||は、最初のオペランドがtruthlyな値の倍にその値をそのまま返し、それ以外の場合には2番目の値を返します。'
+const message2 = isLoggedIn || <h1>Please sign up.</h1>;
+
+'この例れは、isLoggedInがfalsyな値の場合にのみ、<h1>が表示される。'
+
+'Null合体演算子(⁇)による短絡評価'
+'Null合体演算子⁇は、最初のオペランドがnullまたはundefinedの場合にのみ2番目の値を返します。そのため、最初のオペランドが空文字列であっても、その値が保持される'
+const message3 = input.name ?? <p>No input proviaded.</p>
+
 
 

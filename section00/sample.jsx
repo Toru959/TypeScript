@@ -77,3 +77,21 @@ const element10 = <input disabled={true} />;
 'しかし、一般的には属性値がtrueの場合、値の部分を省略することが推奨されます。このように記述すると、コードが短くシンプルになるためです。'
 'したがって、上記の例のように属性名のみを指定することで、その属性を有効にすることができます。'
 
+'式'
+'JSX内では、JavaScriptの式を埋め込むことが可能です。これにより、動的な値をJSX内に簡単に導入することができます。'
+
+'基本的な式'
+'JavaScriptの式をJSX内部に埋め込むには、波カッコ{}を使います。'
+const name = "Josh Perz";
+const greeting = <h1>Hello, {name}</h1>;
+
+'ここでは、JavaScriptの変数を埋め込んでいますが、っ式としての評価結果が挿入されるので、JavaScriptの演算やメソッドの呼び出しも可能です。'
+const a = 10;
+const b = 20;
+const sum = <h1>{a + b}</h1>;
+
+const name2 = "Josh Perez";
+const greeting2 = <h1>Hello, {name.toUpperCase()}</h1>;
+
+
+

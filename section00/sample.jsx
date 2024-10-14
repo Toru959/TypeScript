@@ -93,5 +93,12 @@ const sum = <h1>{a + b}</h1>;
 const name2 = "Josh Perez";
 const greeting2 = <h1>Hello, {name.toUpperCase()}</h1>;
 
+'条件式'
+'JavaScriptのif文は式ではなく文であるため、JSXの式の中に直接書くことはできません。条件式が必要な場合には三項演算子を用います。'
+const isUser = true;
+const greeting3 = isUser ? <h1>Welcome back!</h1> : <h1>Please sign up.</h1>;
+
+'このように、三項演算子を使うことでJSX内で条件によって表示を切り替えることがかのう。'
+
 
 

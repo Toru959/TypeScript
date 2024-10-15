@@ -118,4 +118,21 @@ const message2 = isLoggedIn || <h1>Please sign up.</h1>;
 const message3 = input.name ?? <p>No input proviaded.</p>
 
 
+'ループ(反復処理)'
+'JavaScriptのfor-ofループなど、JSX内では文を直接使用することができないため、配列の反復処理を行う際はArray.prototype.map関数のような式を使用します。式とは、値を返すコードの片段のことで、それに対して文は値を生成しません。JSXは基本的には式ベースのシンタックスですので、式が使われます。'
+'Array.prototype.map関数は配列の各要素に対して関数を適用し、その結果で新たな配列を作成します。これを利用して、一連の要素を作ることができます。次にサンプルコードを示します。'
+const numbers = [1, 2, 3];
+const list = (
+  <ul>
+    {numbers.map((number) => (
+      <li key={number.toString()}>{number}</li>
+    ))}
+  </ul>
+);
+// 描画結果: <ul><li>1</li><li>2</li><li>3</li></ul>
+
+'この例では、numbersという配列の各要素に対して関数が適用され、その結果から新たな<li>要素で構成された配列が作成されます。そして、その配列は<ul>要素に展開されlistに代入されます。'
+
+'また、Reactでは配列内の要素に一意なkeyプロパティを追加することが推奨されます。これは、ReactがDOMの変更を効率的に追跡するために使用されます。上記の例では、keyとして数値を文字列に変換したものを使用しています。'
+
 

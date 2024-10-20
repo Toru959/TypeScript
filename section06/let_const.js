@@ -93,3 +93,11 @@ null.toString(); // Error
 '7.bigint型(長整数型): 9007199254740992nのようなnumber型では扱えない大きな整数型'
 
 '上のプリミティブ型以外は、JavaScriptにおいてはすべてオブジェクトと考えて問題ない。配列や正規表現オブジェクトなどもすべてオブジェクトです'
+
+'boolean型'
+'JavaScriptのboolean型は、trueとfalseの論理値からなる型です。'
+const isOK = true;
+const isPanda = false;
+
+'TypeScriptのboolean型の型注釈はbooleanを使います'
+// const isOK: boolean = true;

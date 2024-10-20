@@ -10,3 +10,18 @@
 'number型の型注釈'
 'TypeScriptでnumber型の型注釈'
 const count1: number = 123;
+
+'string型'
+'Javクウォーとクウォールクウォートで文字列リテラル(String型)を表現し、シングルクウォートで文字リテラル(char型を表現するといったように、使うクウォート出方が変わります。)'
+'一方JavaScriptでは、ダダブルクォートでもシングルクォートでもまったく同じstring型になります。この点はPHPと同様です。'
+"hello";
+'hello';
+`hello`;
+
+'文字列中に同じ引用符が含まれてい場合は。バックスラッシュでエスケープしなければなりません。'
+'He said "madam, I\'m Adam."'
+"He said \"madam, I'm Adam.\""
+
+'文字列の型注釈'
+'JavaScriptのstring型の型注釈はstringを用います'
+const message: string = "hello";

@@ -42,3 +42,29 @@ const x2: null = null;
 'Typeof演算子の注意点'
 'JavaScriptには値の型を調べるtypeof演算子があります。nullに対してtypeofを用いると"object"が返るので注意が。必要です'
 console.log(typeof null);
+
+
+'undefined型'
+'JavaScriptのundefinedは未定義を表すプリミティブな値です。変数に値がセットされていないとき、戻り値がない関数、オブジェクトに存在しないプロパティにアクセスしたとき、配列に存在しないインデックスでアクセスした時に現れる。'
+let name2;
+console.log(name2);
+
+function func(){
+    console.log(func());
+}
+
+// const obj2 = {};
+// console.log(obj2.name2);
+
+// const arr3 = [];
+// console.log(arr3[1]);
+
+'undefinedリテラル'
+'JavaScriptでは同じプリミティブ型でも、boolean型やnumber型がリテラルがあるのに対し、undefinedにはリテラルはありません。'
+'実はundefinedは変数です。グローバル定数のようなもとの理解してかまわない'
+
+'undefinedの型注釈'
+'TypeScriptでundefined型の型注釈を行うには、undefinedを用います。'
+const x3: undefined = undefined;
+
+'戻り値のない関数はundefinedになりますが、TypeScriptで戻り値無しを型注釈で表現する場合、undefinedではなくvoidをもちいます。'

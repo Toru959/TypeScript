@@ -25,3 +25,20 @@ const count1: number = 123;
 '文字列の型注釈'
 'JavaScriptのstring型の型注釈はstringを用います'
 const message: string = "hello";
+
+
+'null型'
+'JavaScriptのnullは値がないことを示す値です。'
+
+
+'nullリテラル'
+'JavaScriptのnullリテラルはnullです。'
+const x = null;
+
+'nullの型注釈'
+'TyapeScriptでnull型を型注釈するにはnullを用います。'
+const x2: null = null;
+
+'Typeof演算子の注意点'
+'JavaScriptには値の型を調べるtypeof演算子があります。nullに対してtypeofを用いると"object"が返るので注意が。必要です'
+console.log(typeof null);

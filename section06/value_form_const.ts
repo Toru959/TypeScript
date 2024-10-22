@@ -104,4 +104,35 @@ console.log(value);
 '使い分け意識を育てる労力は、それに見合うメリットが少ない'
 
 'undefinedに統一するほうが簡単'
-'「値がない」ことを意味するものがundefinedとnullの2種類あることが混乱の元なので、どちらか一方を使うようにするほうがコーディング上の意思決定を減らせます。なので、nullに寄せていく方法も考えられます。しかし、それはお勧めしません。undefinedはいたるところで自然に発生してくるので、それらをすべてnullにしようとすると、記述量がどんどん増えていくからです。'
+'「値がない」ことを意味するものがundefinedとnullの2種類あることが混乱の元なので、どちらか一方を使うようにするほうがコーディング上の意思決定を減らせます。なので、nullに寄せていく方法も考えられます。しかし、それはお勧めしません。undefinedはいたるところで自然に発生してくるので、それらをすべてnullにしようとすると、記述量がどんどん増えていくからで'
+
+'symbol型 (シンボル型)'
+'JavaScriptのsymbol型はプリミティブ型の一種で、その値が一意になる値です。boolean型やnumber型は値が同じであれば、等価比較がtrueになります。一方、シンボルはシンボル名が同じであっても、初期化した場所が違うとfalseになります。'
+const s1 = Symbol("foo");
+const s2 = Symbol("foo");
+console.log(s1 === s1);
+// 
+
+'シンボルの型注釈'
+'TypeScriptでシンボルの型注釈はsymbolを用います。'
+const s: symbol = Symbol();
+
+'symbol型を使う上での注意点'
+'symbol型を直接JSON.stringify()に渡すとundefinedが返ります。'
+console.log(JSON.stringify(Symbol("many")));
+
+'また、symbol型をプロパティに含むオブジェクトをJSON.stringify()に渡すと、symbol型をプロパティに含むキーは消滅します。'
+console.log(
+    JSON.stringify({
+        x: Symbol("many"),
+        y: "hello",
+    })
+);
+
+'様に、symbol型をキーに含むオブジェクトをJSON.stringify()に渡すと、symbol型のキーは消滅します。'
+console.log(
+    JSON.stringify({
+        [Symbol("many")]: "hello",
+        y: "hello",
+    })
+);

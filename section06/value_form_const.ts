@@ -188,5 +188,29 @@ const str: "foo" = "foo";
 '一般的にリテラル型はマジックナンバーやステートの表現に用いられます。その際、ユニオン型とb組み合わせることがおおい'
 let num3: 1 | 2 | 3 = 1;
 
+'any型'
+'TypeScriptのany型は、どんな型でも代入できます。プリミティブ型であれオブジェクトであれ何を代入してもエラーにならない。'
+let value2: any;
+value2 = 1;
+value2 = "string";
+value2 = { name: "object"};
 
+'また、any型の変数については、これ以上コンパイラーが型チェックを行いません。実行してみるとエラーになるようなコードでも、コンパイラーはその問題を指摘しない。'
+'数値を変数strに代入しています。しかし、2行目のtoLowerCaseはstring型のメソッドでnumber型にはそんざいしないため、実行してみるとエラーになります。このような単純な矛盾はTypoeScriptコンパイラーではっけんできるが、型注釈でanyにした値についてはコンパイラーが警告しなくなる'
+const str3: any = 234;
+str3.toLowerCase(); // NO error
+
+'沈黙のany'
+'型を省略してコンテキストから型が推論できないとき、TypeScriptは暗黙的に型をany型として扱います。例えば、引数の型注釈を省略した場合です。'
+'name変数がany型として判定されるため、型チャックは問題なく通ってしまいます。しかし、number型の値でtoUpperCace()のメソッドの呼び出しが実行されるため、未定義メソッドとしてエラーが発生します。'
+// function hello2(name){ // error
+//     console.log(`Hello, ${name.toUpperCase()}`);
+// }
+// hello2(1);
+
+'このように暗黙のanyは型チェックをすり抜けて実行時エラーを引き起こす可能性があります。TypeScriptでは暗黙のanyを規制するオプションとしてnoImplicitAnyが用意されています。'
+'tsconfig.jsonにてnoImplicitAny: trueを設定することで, TypeScriptが型をany型と推測した場合にエラーが発生するようになります。'
+// function hello3(name){
+//     console.log(`Hello ${name.toUpperCase()}`);
+// }
 

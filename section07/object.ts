@@ -26,3 +26,29 @@ person.age = 23;
 
 'ちなみに、広く使われるデータシリアライズ形式にJSONがあるのはご存じでしょう。JSONは多くのプログラミング言語で用いられていますが、JSONはJavaScriptObjectNotationの略で、JSONの由来はJavaScriptのオブジェクトリテラルにあります。'
 'そして、JavaScriptではJSONをそのままオブジェクトリテラルとして解釈できます。'
+
+'オブジェクトの型注釈'
+'TypeScriptでオブジェクトの型注釈は、JavaScriptオブジェクトリテラルのような書き方で、オブジェクトプロパティをキーと値の型のペアを書きます。'
+let box: { width: number; height: number};
+box = { width: 1080, height: 720}
+
+'オブジェクトの型注釈をしておくと、型の誤りをコンパイラーが警告してくれる'
+let box2: { width: number; height: number};
+//box2 = { width: "1080", height: 720} // error
+//box2 = { width: 1080} // error
+
+'プロパティの区切り文字には、オブジェクトリテラルのようにカンマ、も使えるが、セミコロンを用いるほうを推奨します。'
+'オブジェクトの型注釈は途中で改行することもできます。改行した場合、プロパティの区切り文字は両尺できる'
+let box3: {
+    width: number;
+    heigh: number;
+};
+box3 = { width: 1080, heigh: 720};
+
+'インラインの型注釈の代わりに、型エイリアスを使った型注釈の書き方もできます。'
+// 型エイリアス
+type Box = { width: number; height: number};
+let box4: Box = { width: 1080, height: 720};
+
+
+

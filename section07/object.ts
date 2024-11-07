@@ -50,5 +50,24 @@ box3 = { width: 1080, heigh: 720};
 type Box = { width: number; height: number};
 let box4: Box = { width: 1080, height: 720};
 
+'メソッドの型注釈'
+'オブジェクトの型注釈には、メソッドの型注釈を書くこともできます。書き方はJavaScriptのメソッド構文にひきうすうと戻り値の型注釈を加えたようなものになります。'
+let calculator: {
+    sum(x: number, y: number): number;
+};
+
+calculator = {
+    sum(x, y){
+        return x + y;
+    }
+}
+
+'メソッドの型注釈は関数構文の書き方でもできます。'
+let calculator2: {
+    sum: (x: number, y: number) => number;
+}
+
+'メソッド構文の型注釈と関数構文の型注釈は、基本的におfな字意味ですが、コンパイラーオプションのstrictFunctionTypesを有効にした場合に関数構文の書き方は、メソッド引数のチェックが厳格になる。'
+
 
 

@@ -80,3 +80,11 @@ let calculator3 = {
     }
 };
 calculator3;
+
+'object型'
+'オブジェクトの型注釈にはobject型を用いることもできます。'
+let box6: object;
+box6 = { width: 1080, height: 720 };
+
+'object型の使用はお勧めしない。理由はobject型には何のプロパティがあるかの情報がないため。'
+
